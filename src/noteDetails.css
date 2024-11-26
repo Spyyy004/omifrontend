@@ -1,0 +1,218 @@
+/* noteDetails.css */
+
+/* Global Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+  }
+  
+  /* Container */
+  .note-details-container {
+    padding: 16px;
+
+    margin: 0 auto;
+  }
+  
+  /* Header */
+  .note-details-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1e40af;
+    margin-bottom: 10px;
+  }
+  
+  .note-details-subject {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 20px;
+  }
+  
+  .note-details-description {
+    font-size: 1.1rem;
+    color: #374151;
+    margin-bottom: 30px;
+    border-left: 4px solid #60a5fa;
+    padding-left: 15px;
+    background-color: #eff6ff;
+    border-radius: 4px;
+    padding: 10px 15px;
+  }
+  
+  /* Section */
+  #note-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* Responsive grid with columns */
+    gap: 10px; /* Space between the grid items */
+    margin-bottom: 30px; /* Space below the grid */
+  }
+  
+  /* Styling each note-section within the grid */
+  .note-section {
+    background: #ffffff;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .note-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1d4ed8;
+    margin-bottom: 10px;
+  }
+  
+  .section-content {
+    font-size: 1rem;
+    color: #374151;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Quiz */
+  .quiz-question {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1d4ed8;
+    margin-bottom: 15px;
+  }
+  
+  .quiz-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .quiz-btn {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .quiz-btn:hover {
+    opacity: 0.9;
+  }
+  
+  .quiz-btn:first-of-type {
+    background-color: #34d399; /* Green */
+  }
+  
+  .quiz-btn:last-of-type {
+    background-color: #f87171; /* Red */
+  }
+  
+  .quiz-result {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+  
+  .quiz-result.correct {
+    background-color: #d1fae5;
+    color: #047857;
+  }
+  
+  .quiz-result.incorrect {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+  
+  /* Progress Indicator */
+  .progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  .progress-indicator {
+    background-color: rgba(59, 130, 246, 0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+  
+  .progress-percentage {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2563eb;
+  }
+  
+  /* Completion Banner */
+  .completion-banner {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .completion-banner h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive Design (Optional for better mobile view) */
+  @media (max-width: 768px) {
+    .note-details-container {
+      padding: 15px;
+    }
+  
+    .note-details-title {
+      font-size: 2rem;
+    }
+  
+    .note-details-subject {
+      font-size: 1rem;
+    }
+  
+    .note-details-description {
+      font-size: 1rem;
+    }
+  
+    .note-section {
+      padding: 15px;
+    }
+  
+    .section-title {
+      font-size: 1.6rem;
+    }
+  
+    .section-content {
+      font-size: 0.9rem;
+    }
+  
+    .quiz-btn {
+      font-size: 0.9rem;
+      padding: 8px 12px;
+    }
+  
+    .quiz-result {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  }
+  
