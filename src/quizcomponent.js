@@ -58,7 +58,7 @@ const Quiz = ({ quizData, onSubmit }) => {
         return;
       }
   
-      const response = await fetch("http://localhost:3000/submit-quiz", {
+      const response = await fetch("https://omibackend.onrender.com/submit-quiz", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

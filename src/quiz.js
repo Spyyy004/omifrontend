@@ -38,7 +38,7 @@ const QuizForm = ({ notes }) => {
 
     try {
         // Make the POST request to create the quiz
-        const response = await axios.post("http://localhost:3000/create-quiz", quizData, {
+        const response = await axios.post("https://omibackend.onrender.com/create-quiz", quizData, {
           headers: {
             "Content-Type": "application/json",
                ' Authorization': `Bearer ${authToken}`,

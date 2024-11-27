@@ -12,7 +12,7 @@ export const SignIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const endpoint = isSignUp ? 'http://localhost:3000/signup' : 'http://localhost:3000/login';
+    const endpoint = isSignUp ? 'https://omibackend.onrender.com/signup' : 'https://omibackend.onrender.com/login';
 
     try {
       const response = await axios.post(endpoint, formData);
