@@ -1,7 +1,9 @@
-Container for the entire dashboard
+
 .dashboard-container {
     display: flex;
+    flex-direction: row;
     height: 100vh;
+    width:100vw;
     background-color: #f4f4f4;
     font-family: "Arial", sans-serif;
   }
@@ -51,7 +53,7 @@ Container for the entire dashboard
     background-color: #f9f9f9;
   }
   
-  /* Responsive adjustments */
+
   @media (max-width: 768px) {
     .dashboard-container {
       flex-direction: column;

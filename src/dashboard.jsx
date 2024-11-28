@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import NotesList from "./NotesList";
 import NoteDetails from "./NoteDetails";
-import QuizForm from "./quiz.jsx"; // Ensure to import the quiz form
+import QuizForm from "./quiz.js"; // Ensure to import the quiz form
 import "./dashboard.css";
 import ProfilePage from "./profilepage.jsx";
 

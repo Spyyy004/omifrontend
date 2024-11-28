@@ -30,7 +30,7 @@ export const SignIn = () => {
     <div className="signin-container">
       {/* Left Section */}
       <div className="left-section">
-        <h1>{isSignUp ? 'Join Omi Notes Today!' : 'Welcome Back!'}</h1>
+        <h1>{isSignUp ? 'Join Studiee Today!' : 'Welcome Back!'}</h1>
         <p>{isSignUp ? 'Create an account to get started.' : 'Login to access your notes.'}</p>
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
