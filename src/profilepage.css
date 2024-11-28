@@ -1,0 +1,83 @@
+/* Container Styling */
+.profile-container {
+    font-family: "Poppins", sans-serif;
+    padding: 20px;
+    background-color: #f4f7fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Card for User Details */
+  .profile-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .profile-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Quizzes Section */
+  .quizzes-section {
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .quizzes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .quizzes-table th,
+  .quizzes-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .quizzes-table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .quizzes-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .no-quizzes {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  
+  /* Error Message */
+  .error {
+    color: red;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  

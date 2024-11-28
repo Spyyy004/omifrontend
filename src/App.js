@@ -5,6 +5,7 @@ import Dashboard from "./dashboard"; // Dashboard Component
 import NoteDetails from "./NoteDetails";
 import NotesList from "./NotesList";
 import QuizForm from "./quiz";
+import ProfilePage from "./profilepage";
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
         <Route path="/notes" element={<Dashboard />} /> {/* Dashboard */}
         
             <Route path="/quizzes" element={<Dashboard/>} />
-            <Route path="/profile" element={<h2>Profile Page (Coming Soon!)</h2>} />
+            <Route path="/profile" element={<Dashboard/>} />
       </Routes>
     </Router>
   );

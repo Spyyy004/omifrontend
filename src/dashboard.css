@@ -1,4 +1,4 @@
-/* Container for the entire dashboard */
+Container for the entire dashboard
 .dashboard-container {
     display: flex;
     height: 100vh;

@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import NotesList from "./NotesList";
 import NoteDetails from "./NoteDetails";
-import QuizForm from "./quiz.js"; // Ensure to import the quiz form
+import QuizForm from "./quiz.jsx"; // Ensure to import the quiz form
 import "./dashboard.css";
+import ProfilePage from "./profilepage.jsx";
 
 const Dashboard = () => {
   const [notes, setNotes] = useState([]);
@@ -69,8 +70,9 @@ const Dashboard = () => {
             </Link>
           </li>
           <li>
-            <Link to="/profile" className="sidebar-link">
+            <Link to="/profile" className="sidebar-link"  onClick={() => handleSectionChange("profile")}>
               Profile
+ 
             </Link>
           </li>
         </ul>
@@ -82,9 +84,11 @@ const Dashboard = () => {
           ) : (
             <NotesList notes={notes} onNoteClick={handleNoteClick} />
           )
-        ) : (
+        ) :activeSection === "quizzes" ? (
           <QuizForm notes={notes}/> // Render the quiz form if "quizzes" is the active section
-        )}
+        ) :(
+            <ProfilePage/> // Render the quiz form if "quizzes" is the active section
+          ) }
       </main>
     </div>
   );
