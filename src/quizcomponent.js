@@ -3,13 +3,13 @@ import "./quizcomponent.css";
 
 const Quiz = ({ quizData, onSubmit }) => {
   const [currentAnswers, setCurrentAnswers] = useState({});
-  const [timer, setTimer] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(null);
+  const [loading, setLoading] = useState(false); // Loader state
 
   useEffect(() => {
     if (quizData.isTimed) {
       const quizTimer = parseInt(quizData?.totalQuestions) * 60;
-      setTimeRemaining(quizTimer); 
+      setTimeRemaining(quizTimer);
       const interval = setInterval(() => {
         setTimeRemaining((prevTime) => {
           if (prevTime <= 0) {
@@ -23,102 +23,108 @@ const Quiz = ({ quizData, onSubmit }) => {
 
       return () => clearInterval(interval);
     }
-  }, [quizData.isTimed, timer]);
+  }, [quizData.isTimed]);
 
-  const handleOptionChange = (questionId, selectedOption) => {
+  const handleOptionChange = (questionId, selectedOptionKey) => {
     setCurrentAnswers((prevAnswers) => ({
       ...prevAnswers,
-      [questionId]: selectedOption,
+      [questionId]: selectedOptionKey, // Store the key instead of the value
     }));
   };
 
   const calculateScore = () => {
     let score = 0;
     quizData.quiz.forEach((question) => {
-      if (currentAnswers[question.question] === question.correctAnswer) {
+      if (currentAnswers[question.question] === question.answer) {
         score += 1;
       }
     });
     return score;
   };
+  
 
   const handleSubmit = async () => {
+    setLoading(true); // Show loader
     const score = calculateScore(); // Calculate the score
+    if(!quizData?.isTimed){
+        setLoading(true); 
+        alert(`Quiz submitted! Your score is ${score}/${quizData.quiz.length}`);
+        return;
+    }
     const payload = {
       quizId: quizData?.id ?? "0000",
       score,
       answers: Object.values(currentAnswers),
     };
-  
+
     try {
-      // Retrieve authToken from localStorage
       const authToken = localStorage.getItem("authToken");
       if (!authToken) {
         alert("Authentication token not found. Please log in again.");
+        setLoading(false); // Hide loader
         return;
       }
-  
       const response = await fetch("https://omibackend.onrender.com/submit-quiz", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${authToken}`, // Include the token in headers
+          Authorization: `Bearer ${authToken}`,
         },
         body: JSON.stringify(payload),
       });
-  
       if (response.ok) {
         const result = await response.json();
-        console.log("Quiz submitted successfully:", result);
         alert(`Quiz submitted! Your score is ${score}/${quizData.quiz.length}`);
       } else {
-        console.error("Failed to submit quiz:", response.statusText);
         alert("Failed to submit quiz. Please try again.");
       }
     } catch (error) {
-      console.error("Error during API call:", error);
       alert("An error occurred while submitting the quiz. Please try again.");
+    } finally {
+      setLoading(false); // Hide loader
     }
-  
-    // Notify the parent or trigger additional logic
-    // onSubmit(currentAnswers);
   };
-  
 
   const renderQuestion = (question, index) => (
-    <div key={index} className="question-container">
-      <h3 className="question">{question.question}</h3>
+    <div key={index} className="question-card">
+      <h3 className="question">{`${index + 1}. ${question.question}`}</h3>
       <div className="options-container">
-        {Object.entries(question.options).map(([optionKey, optionValue]) => (
-          <label key={optionKey} className="option-label">
-            <input
-              type="radio"
-              name={question.question}
-              value={optionValue}
-              checked={currentAnswers[question.question] === optionValue}
-              onChange={() => handleOptionChange(question.question, optionValue)}
-              className="radio-input"
-            />
-            {optionValue}
-          </label>
-        ))}
+      {Object.entries(question.options).map(([optionKey, optionValue]) => (
+  <label key={optionKey} className="option-label">
+    <input
+      type="radio"
+      name={question.question}
+      value={optionKey} // Use the option key as the value
+      checked={currentAnswers[question.question] === optionKey}
+      onChange={() => handleOptionChange(question.question, optionKey)}
+      className="radio-input"
+    />
+    {optionValue} {/* Display the full option text */}
+  </label>
+))}
+
       </div>
     </div>
   );
 
   return (
-    <div className="quiz-form-container">
+    <div className="quiz-container">
       {quizData.isTimed && (
         <div className="timer-container">
           <h4 className="timer">Time Remaining: {timeRemaining}s</h4>
         </div>
       )}
-      <div>
+      <div className="questions-container">
         {quizData.quiz.map((question, index) => renderQuestion(question, index))}
       </div>
-      <button onClick={handleSubmit} className="submit-btn">
-        Submit Quiz
+      <button
+        onClick={handleSubmit}
+        className="submit-btn"
+        disabled={loading} // Disable button while loading
+      >
+        {loading ? "Submitting..." : "Submit Quiz"}
       </button>
+      {loading && <div className="loader">Submitting your quiz...</div>}
     </div>
   );
 };

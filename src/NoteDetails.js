@@ -12,7 +12,7 @@ function NoteDetails(props) {
 
   // Handle quiz answer submission
   const handleQuizSubmit = (questionIndex, userAnswer) => {
-    const correctAnswer = note.data.sections[questionIndex]?.quiz?.answer;
+    const correctAnswer = note.data.sections[questionIndex]?.quiz?.Answer;
     setQuizResults((prevResults) => ({
       ...prevResults,
       [questionIndex]: userAnswer === correctAnswer, // Compare user answer with the correct one

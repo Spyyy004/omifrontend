@@ -117,3 +117,213 @@
     }
   }
   
+  /* Main Quiz Container */
+.quiz-container {
+    font-family: "Poppins", sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Timer Styling */
+  .timer-container {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .timer {
+    font-size: 1.2rem;
+  }
+  
+  /* Question Cards */
+  .questions-container {
+    width: 100%;
+  }
+  
+  .question-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .question {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  /* Options Styling */
+  .options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .option-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .option-label:hover {
+    background-color: #e6f7ff;
+  }
+  
+  .radio-input {
+    transform: scale(1.2);
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+
+  /* Loader Styling */
+.loader {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #007bff;
+    text-align: center;
+  }
+  
+  /* Disabled Submit Button */
+  .submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: white;
+  }
+  
+
+  /* Container Styling */
+.quiz-form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: linear-gradient(145deg, #f3f4f6, #ffffff);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Title Styling */
+  .quiz-form-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #007bff;
+  }
+  
+  /* Form Styling */
+  .quiz-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Labels */
+  .form-label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+  }
+  
+  /* Inputs */
+  .form-input,
+  .form-select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+  }
+  
+  .form-input:focus,
+  .form-select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Radio Buttons */
+  .radio-group {
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+  }
+  
+  .radio-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .radio-input {
+    transform: scale(1.2);
+  }
+  
+  /* Checkbox */
+  .checkbox-input {
+    margin-right: 10px;
+  }
+  
+  /* Timed Info */
+  .timed-info {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+  }
+  
+  .submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
