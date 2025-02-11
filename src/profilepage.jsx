@@ -10,7 +10,7 @@ const ProfilePage = () => {
     const fetchProfile = async () => {
         const authToken = localStorage.getItem('authToken');
       try {
-        const response = await fetch("http://localhost:3000/get-profile", {
+        const response = await fetch("https://omibackend.onrender.com/get-profile", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${authToken}`, // Replace with the actual authToken
